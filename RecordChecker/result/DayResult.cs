@@ -8,18 +8,19 @@ namespace RecordChecker
     class DayResult
     {
         public int DayNum { get; private set; }
-        public bool NeedHR { get; set; }
-        public List<DateTime> TimesNeedHR { get; private set; }
+        //public bool NeedHR { get; set; }
+        public ResultStatus Status { get; set; }
+        public DayRecord DayRecord { get; set; }
 
         public DayResult()
         {
-            this.TimesNeedHR = new List<DateTime>();
+            this.Status = ResultStatus.None;
         }
 
         public DayResult(int day)
         {
             this.DayNum = day;
-            this.TimesNeedHR = new List<DateTime>();
+            this.Status = ResultStatus.None;
         }
     }
 }

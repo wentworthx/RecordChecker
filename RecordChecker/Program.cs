@@ -10,8 +10,10 @@ namespace RecordChecker
         static string fileName = @"C:\Users\fxiao\Desktop\2015.3\2015.3\9F\Record.txt";
 
         static Dictionary<string, PersonRecord> Persons = new Dictionary<string, PersonRecord>();
-        public static Dictionary<string, StandardRecord> StandardRecords = new Dictionary<string, StandardRecord>();
         static List<PersonResult> CheckResults = new List<PersonResult>();
+
+        public static bool ConsiderElastic = true;
+        public static Dictionary<string, StandardRecord> StandardRecords = new Dictionary<string, StandardRecord>();
 
         static void Main(string[] args)
         {
@@ -28,7 +30,7 @@ namespace RecordChecker
             /*
              * Output
              */
-
+            OutputResults(CheckResults);
         }
 
         static void GetRecords(string fileName)
@@ -61,16 +63,23 @@ namespace RecordChecker
             foreach (var person in persons)
             {
                 PersonResult checkResult = new PersonResult();
-                checkResult = person.Value.Check() as PersonResult;
+                PersonRecord personRecord = person.Value;
+                personRecord.PickWorkStartTime();
+                checkResult = personRecord.Check() as PersonResult;
                 CheckResults.Add(checkResult);
             }
         }
 
         static void InitStandardRecords()
         {
-            StandardRecords["900"] = new StandardRecord(new DateTime(0, 0, 0, 9, 0, 0));
-            StandardRecords["700"] = new StandardRecord(new DateTime(0, 0, 0, 7, 0, 0));
-            StandardRecords["1400"] = new StandardRecord(new DateTime(0, 0, 0, 14, 0, 0));
+            StandardRecords["830"] = new StandardRecord(new TimeSpan(8, 30, 0));
+            StandardRecords["700"] = new StandardRecord(new TimeSpan(7, 0, 0));
+            StandardRecords["1400"] = new StandardRecord(new TimeSpan(14, 0, 0));
+        }
+
+        static void OutputResults(List<PersonResult> CheckResults)
+        {
+
         }
     }
 }
