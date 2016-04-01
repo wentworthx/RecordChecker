@@ -32,14 +32,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>thirddll\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="writer\DetailWriter.cs" />
+    <Compile Include="writer\SummaryWriter.cs" />
+    <Compile Include="writer\RecordWriter.cs" />
     <Compile Include="result\DayResult.cs" />
     <Compile Include="result\PersonResult.cs" />
     <Compile Include="record\DayRecord.cs" />
@@ -52,7 +59,14 @@
     <Compile Include="utility\RecordReader.cs" />
     <Compile Include="record\StandardRecord.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="CheckerConfig.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

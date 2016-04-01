@@ -173,7 +173,7 @@ namespace RecordChecker
 
         private bool WhetherUseElastic()
         {
-            return Program.ConsiderElastic && this.mWorkStartTime.Name.Equals("08:30:00");
+            return Program.ConsiderElastic && this.mWorkStartTime.Name.Equals(Program.UnpaidLeaveTime);
         }
     }
 }

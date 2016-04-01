@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RecordChecker>
+  <TimeToWork>
+    <Time hour="8" minute="30" second="0"></Time>
+    <Time hour="7" minute="0" second="0"></Time>
+    <Time hour="14" minute="0" second="0"></Time>
+  </TimeToWork>
+  <UnpaidLeaveTime hour="8" minute="30" second="0"></UnpaidLeaveTime>
+</RecordChecker>

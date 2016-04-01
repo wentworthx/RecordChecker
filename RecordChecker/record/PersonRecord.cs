@@ -31,7 +31,7 @@ namespace RecordChecker
             {
                 DayRecords[key].AddTime(time);
             }
-            else if (key > 1 && time.Hour <= 4)
+            else if (key > 1 && time.Hour <= 4 && formerDayNum != 0)
             {
                 DayRecords[formerDayNum].AddTime(time);
             }
