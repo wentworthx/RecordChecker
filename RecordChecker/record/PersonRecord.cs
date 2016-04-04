@@ -7,7 +7,7 @@ namespace RecordChecker
 {
     class PersonRecord : IRecordCheck
     {
-        private StandardRecord mWorkStartTime;
+        private StandardTime mWorkStartTime;
         private int formerDayNum = 0;
 
         public string Name { get; private set; }
@@ -45,10 +45,10 @@ namespace RecordChecker
 
         public void PickWorkStartTime()
         {
-            Dictionary<StandardRecord, List<int>> startTimes = new Dictionary<StandardRecord, List<int>>();
+            Dictionary<StandardTime, List<int>> startTimes = new Dictionary<StandardTime, List<int>>();
             foreach (var day in DayRecords)
             {
-                StandardRecord sr = day.Value.CloseTo();
+                StandardTime sr = day.Value.CloseTo();
                 List<int> days = new List<int>();
                 if (startTimes.TryGetValue(sr, out days))
                 {

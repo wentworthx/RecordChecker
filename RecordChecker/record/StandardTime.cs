@@ -5,15 +5,15 @@ using System.Text;
 
 namespace RecordChecker
 {
-    class StandardRecord
+    class StandardTime
     {
         public string Name { get; private set; }
         public TimeSpan Start { get; private set; }
         public TimeSpan End { get; private set; }
 
-        public StandardRecord() { }
+        public StandardTime() { }
 
-        public StandardRecord(TimeSpan start)
+        public StandardTime(TimeSpan start)
         {
             this.Name = start.ToString();
             this.Start = start;

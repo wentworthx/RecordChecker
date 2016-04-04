@@ -1,9 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<RecordChecker>
-  <TimeToWork>
-    <Time hour="8" minute="30" second="0"></Time>
-    <Time hour="7" minute="0" second="0"></Time>
-    <Time hour="14" minute="0" second="0"></Time>
-  </TimeToWork>
-  <UnpaidLeaveTime hour="8" minute="30" second="0"></UnpaidLeaveTime>
-</RecordChecker>
+<recordchecker>
+  <timetowork>
+    <time name="830" hour="8" minute="30" second="0"></time>
+    <time name="700" hour="7" minute="0" second="0"></time>
+    <time name="1300" hour="13" minute="0" second="0"></time>
+  </timetowork>
+  <departments>
+    <department name="830">dev</department>
+    <department name="1300">support</department>
+    <department name="830">accounting</department>
+    <department name="830">sales</department>
+    <department name="830">hr</department>
+  </departments>
+  <persons>
+    <person></person>
+  </persons>
+  <unpaidleavetime name="830"></unpaidleavetime>
+</recordchecker>

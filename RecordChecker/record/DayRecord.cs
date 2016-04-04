@@ -9,7 +9,7 @@ namespace RecordChecker
     {
         private const double RATE = 0.5;
 
-        private StandardRecord mWorkStartTime;
+        private StandardTime mWorkStartTime;
         private TimeSpan mStartTime;
         private TimeSpan mEndTime;
         private bool isInitialized = false;
@@ -43,34 +43,38 @@ namespace RecordChecker
             DayTimes.Add(temp);
         }
 
-        public StandardRecord CloseTo()
+        public StandardTime CloseTo()
         {
-            mStartTime = DayTimes.Min();
-            long minTicks = long.MaxValue;
-            string closeStandName = string.Empty;
-            Dictionary<string, StandardRecord> standRecords = Program.StandardRecords;
-            foreach (var stand in standRecords)
-            {
-                long tempMin = 0;
-                TimeSpan standStart = stand.Value.Start;
-                if (mStartTime < standStart)
-                {
-                    tempMin = (long)((standStart - mStartTime).Ticks * RATE);
-                }
-                else
-                {
-                    tempMin = (mStartTime - standStart).Ticks;
-                }
-                if (minTicks > tempMin)
-                {
-                    minTicks = tempMin;
-                    closeStandName = stand.Key;
-                }
-            }
-            return standRecords[closeStandName];
+            //mStartTime = DayTimes.Min();
+            //long minTicks = long.MaxValue;
+            //string closeStandName = string.Empty;
+            //Dictionary<string, StandardTime> standRecords = Program.StandardRecords;
+            //foreach (var stand in standRecords)
+            //{
+            //    long tempMin = 0;
+            //    TimeSpan standStart = stand.Value.Start;
+            //    if (mStartTime < standStart)
+            //    {
+            //        tempMin = (long)((standStart - mStartTime).Ticks * RATE);
+            //    }
+            //    else
+            //    {
+            //        tempMin = (mStartTime - standStart).Ticks;
+            //    }
+            //    if (minTicks > tempMin)
+            //    {
+            //        minTicks = tempMin;
+            //        closeStandName = stand.Key;
+            //    }
+            //}
+            //return standRecords[closeStandName];
+
+            // TODO pick the work times
+
+            throw new NotImplementedException();
         }
 
-        public void SetStandardRecord(StandardRecord standardRecord)
+        public void SetStandardRecord(StandardTime standardRecord)
         {
             this.mWorkStartTime = standardRecord;
             this.useElastic = WhetherUseElastic();
@@ -173,7 +177,10 @@ namespace RecordChecker
 
         private bool WhetherUseElastic()
         {
-            return Program.ConsiderElastic && this.mWorkStartTime.Name.Equals(Program.UnpaidLeaveTime);
+            //return Program.ConsiderElastic && this.mWorkStartTime.Name.Equals(Program.UnpaidLeaveTime);
+
+            // TODO whether use unpaid leave time
+            return false;
         }
     }
 }

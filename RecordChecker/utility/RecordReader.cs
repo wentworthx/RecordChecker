@@ -23,9 +23,9 @@ namespace RecordChecker
             this.mReader = new StreamReader(this.mFilePath);
         }
 
-        public Record Read()
+        public LineRecord Read()
         {
-            Record record = null;
+            LineRecord record = null;
 
             string name = string.Empty;
             DateTime time = new DateTime(0);
@@ -38,7 +38,7 @@ namespace RecordChecker
                     if (time.Ticks == 1)
                         continue;
                     else
-                        record = new Record(name, time);
+                        record = new LineRecord(name, time);
                     break;
                 }
                 break;

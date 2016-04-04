@@ -5,14 +5,14 @@ using System.Text;
 
 namespace RecordChecker
 {
-    class Record
+    class LineRecord
     {
         public string Name { get; set; }
         public DateTime Time { get; set; }
 
-        public Record() { }
+        public LineRecord() { }
 
-        public Record(string name, DateTime time)
+        public LineRecord(string name, DateTime time)
         {
             this.Name = name;
             this.Time = time;
